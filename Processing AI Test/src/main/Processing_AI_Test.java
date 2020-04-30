@@ -107,8 +107,9 @@ public class Processing_AI_Test extends PApplet {
         if (impathable) {
             textFont(fontLarge);
             textAlign(CENTER);
+            fill(0,100);
+            text("NO PATH FOUND",((width-200)/2f)+2,(height/2f)+2);
             fill(255,0,0);
-            stroke(0);
             text("NO PATH FOUND",(width-200)/2f,height/2f);
         }
     }
