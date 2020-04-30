@@ -17,6 +17,7 @@ import static main.actions.UpdatePath.updatePath;
 
 public class Processing_AI_Test extends PApplet {
 
+    public static PFont fontLarge;
     public static PFont font;
     public static PFont fontSmall;
 
@@ -34,6 +35,7 @@ public class Processing_AI_Test extends PApplet {
     public static int numEnd;
     public static float maxCost;
     public static float minCost;
+    public static boolean impathable;
 
     public static boolean auto = true;
     public static boolean displayLines = false;
@@ -72,6 +74,7 @@ public class Processing_AI_Test extends PApplet {
         updatePath(this);
 
         place = "nt";
+        fontLarge = createFont("STHeitiSC-Light", 64);
         font = createFont("STHeitiSC-Light", 32);
         fontSmall = createFont("STHeitiSC-Light", 12);
         textAlign(CENTER);
@@ -100,6 +103,14 @@ public class Processing_AI_Test extends PApplet {
         }
 
         for (int i = seekers.size()-1; i >= 0; i--) seekers.get(i).sMain(i);
+
+        if (impathable) {
+            textFont(fontLarge);
+            textAlign(CENTER);
+            fill(255,0,0);
+            stroke(0);
+            text("NO PATH FOUND",(width-200)/2f,height/2f);
+        }
     }
 
     private float maxCost() {

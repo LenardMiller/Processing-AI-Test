@@ -2,8 +2,7 @@ package main.pathfinding;
 
 import java.util.ArrayList;
 
-import static main.Processing_AI_Test.defaultSize;
-import static main.Processing_AI_Test.openNodes;
+import static main.Processing_AI_Test.*;
 
 public class AStar {
 
@@ -15,12 +14,13 @@ public class AStar {
         reqQ = new ArrayList<>();
     }
 
-    public void find(int index){
+    public void find(int index) {
         this.index = index;
 
-        while (openNodes.currentCount > 0 && !done){
+        while (openNodes.currentCount > 0 && !done) {
             Node current = openNodes.removeFirstItem().node;
             current.setClose();
         }
+        impathable = openNodes.currentCount == 0 && !done;
     }
 }
